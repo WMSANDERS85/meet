@@ -24,9 +24,9 @@ The app is built using Test Driven Development(TDD) and Behavior Driven Developm
 - [Live site URL](https://wmsanders85.github.io/meet/)
 - [Code URL](https://github.com/WMSANDERS85/meet)
 
-## Features, User Stories and Scenarios
+## Features, User Stories, and Scenarios
 
-### Feature 1: Filter Events by City.
+### Feature 1: Filter Events by City
 
 **User Story**
 
@@ -46,7 +46,7 @@ The app is built using Test Driven Development(TDD) and Behavior Driven Developm
 
 **Given** user hasn't searched for any city;
 **When** the user starts typing in the city textbox;
-**Then** the user should recieve a list of cities (suggestion) that match what they've typed.
+**Then** the user should recieve a list of cities (suggestions) that match what they've typed.
 
 **Scenario 3 User can select a city from the suggested list**
 
@@ -54,7 +54,7 @@ The app is built using Test Driven Development(TDD) and Behavior Driven Developm
 **When** the user selects a city (e.g., "San Diego, United States") from the list;
 **Then** their city should be changed to that city (i.e., "San Diego, United States") AND the user should recieve a list of upcoming events in that city.
 
-### Feature 2: Show/Hide Event Details.
+### Feature 2: Show/Hide Event Details
 
 **User Story**
 
@@ -78,11 +78,11 @@ The app is built using Test Driven Development(TDD) and Behavior Driven Developm
 
 **Scenario 3: User can collapse event details**
 
-**Given** the user chooses to view another event or list events;
+**Given** the user chooses to view another event or return to the list of events for the selected city;
 **When** the user clicks outside the event description or clicks the close icon;
 **Then** the event element will return to a collapsed state.
 
-### Feature 3: Specify Number of Events.
+### Feature 3: Specify Number of Events
 
 **User Story**
 
@@ -94,9 +94,9 @@ The app is built using Test Driven Development(TDD) and Behavior Driven Developm
 
 **Scenario 1: When user hasn’t specified a number, 32 events are shown by default**
 
-**Given** The user doesn't specify the number of events they want to see per city;
+**Given** The user doesn't specify the number of events they want to view per city;
 **When** The user selects a city to view events for;
-**Then** The user will see the default (32) events for the selected city;
+**Then** The user will see the default number of events for the selected city;
 
 **Scenario 2: User can change the number of events displayed**
 
@@ -104,7 +104,7 @@ The app is built using Test Driven Development(TDD) and Behavior Driven Developm
 **When** The user selects a city to view events for;
 **Then** The specified number of events will be shown for the selected city;
 
-### Feature 4: Use the App When Offline.
+### Feature 4: Use the App When Offline
 
 **User Story**
 
@@ -118,7 +118,7 @@ The app is built using Test Driven Development(TDD) and Behavior Driven Developm
 
 **Given** The user loses or has no access to an internet connection;
 **When** The user opens the app to view events;
-**Then** The user will be able to view the events that they viewed the last time they were logged on (Cached data);
+**Then** The user will be able to view the events that they viewed the last time they were online (Cached data);
 
 **Scenario 2: Show error when user changes search settings (city, number of events)**
 
@@ -126,7 +126,7 @@ The app is built using Test Driven Development(TDD) and Behavior Driven Developm
 **When** The user changes search settings (city,number of events);
 **Then** an error message will be displayed notifying the user that they are not connected to the internet.
 
-### Add an App Shortcut to the Home Screen.
+### Add an App Shortcut to the Home Screen
 
 **User Story**
 
@@ -170,7 +170,7 @@ The app is built using Test Driven Development(TDD) and Behavior Driven Developm
 This app follows a Test-Driven-Development(TDD) approach to ensure the highest quality and reliability. The Meet app utilizes the various testing frameworks listed below.
 
 - [Jest:](https://jestjs.io/) A Javascript testing framework with a focus on simplicity.
-- [Cucumber:](https://cucumber.io/) tests appications for Behavior Driven Development(BDD) style. Tests are written in a natural laguage that is easily understandable for all.
+- [Cucumber:](https://cucumber.io/) tests appications for Behavior Driven Development(BDD) style. Tests are written in a natural language that is easily understandable for all.
 
 ## Progresive Web App (PWA)
 
