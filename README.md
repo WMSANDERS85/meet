@@ -10,6 +10,7 @@
   - [Technologies](#technologies)
   - [Testing](#testing)
   - [Progressive Web App (PWA)](#Progressive-web-app-pwa)
+  - [Serverless Functions](#Serverless-functions)
 
 - [Data Flow: Google Calendar API and Serverless Authorization](#data-flow-google-calendar-api-and-serverless-authorization)
 
@@ -175,6 +176,10 @@ This app follows a Test-Driven-Development(TDD) approach to ensure the highest q
 ## Progresive Web App (PWA)
 
 The "Meet App" is a serverless, progressive web application (PWA) developed using React and the test-driven development (TDD) technique. It integrates with the Google Calendar API to showcase upcoming events and offers users the ability to filter events by city, view event details, and visualize event data using charts. Embracing PWA capabilities, the app ensures instant loading, offline accessibility, responsive design across devices, and the option to add the app to a device's home screen.
+
+## Serverless functions
+
+The Meet app utilizes serverless functions for real-time data processing. Giving users a fast event driven app that allows users to view events in major cities in real time, recieve reccomendations about upcoming events of interest, and view details about selected events. The use of serverless functions also gives the Meet app dynamic scalability allowing users to have a fast reactive expierience even during peak hours.
 
 ## Data Flow: Google Calendar API and Serverless Authorization
 
