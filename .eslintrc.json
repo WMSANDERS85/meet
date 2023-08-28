@@ -8,7 +8,8 @@
     "quotes": ["error", "single", {"allowTemplateLiterals": true}],
     "func-names": "off",
     "strict": "off",
-    "arrow-body-style": "off"
+    "arrow-body-style": "off",
+    "camelcase": "off"
   }
 }
 
