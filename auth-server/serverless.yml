@@ -5,16 +5,24 @@ provider:
   name: aws
   runtime: nodejs18.x
   region: us-west-1
-  tiemout: 30 # optional, in seconds, default is 6
+  timeout: 30 # optional, in seconds, default is 6
   environment:
     CLIENT_ID: ${file(config.json):CLIENT_ID}
     CLIENT_SECRET: ${file(config.json):CLIENT_SECRET}
     CALENDAR_ID: ${file(config.json):CALENDAR_ID}
 
 functions:
-  getAuthUrl:
-    handler: handler.getAuthUrl
+  getAuthURL:
+    handler: handler.getAuthURL
     events:
       - http:
           path: api/get-auth-url
           method: get
+
+  getAccessToken:
+    handler: handler.getAccessToken
+    events:
+      - http:
+          path: api/token/{code}
+          method: get
+
