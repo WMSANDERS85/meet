@@ -1,9 +1,6 @@
 /* eslint-disable testing-library/no-node-access */
 import {render} from '@testing-library/react';
 import App from '../App';
-import CitySearch from '../components/CitySearch';
-import EventList from '../components/EventList';
-import NumberOfEvents from '../components/NumberOfEvents';
 
 describe('<App /> component', () => {
   let AppDOM;
