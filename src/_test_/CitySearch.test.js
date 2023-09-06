@@ -1,23 +1,24 @@
-import {render, screen} from '@testing-library/react';
+import {render, screen, within} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import CitySearch from '../components/CitySearch';
 import {extractLocations, getEvents} from '../api';
+import App from '../App';
 
 describe('<CitySearch /> component', () => {
   test('renders text input', () => {
-    render(<CitySearch />);
-    const cityTextBox = screen.getByRole('textbox');
+    render(<CitySearch allLocations={[]} />);
+    const cityTextBox = screen.queryByRole('textbox');
     expect(cityTextBox).toBeInTheDocument();
     expect(cityTextBox).toHaveClass('city');
   });
 
   test('suggestions list is hidden by default', () => {
-    render(<CitySearch />);
+    render(<CitySearch allLocations={[]} />);
     expect(screen.queryByRole('list')).not.toBeInTheDocument();
   });
 
   test('renders a list of suggestions when city textbox gains focus', async () => {
-    render(<CitySearch />);
+    render(<CitySearch allLocations={[]} />);
     const cityTextBox = screen.getByRole('textbox');
     await userEvent.click(cityTextBox);
     expect(screen.getByRole('list')).toBeInTheDocument();
@@ -49,7 +50,9 @@ describe('<CitySearch /> component', () => {
   test('renders the suggestion text in the textbox upon clicking on the suggestion and hides suggestions', async () => {
     const allEvents = await getEvents();
     const allLocations = extractLocations(allEvents);
-    render(<CitySearch allLocations={allLocations} />);
+    render(
+      <CitySearch allLocations={allLocations} setCurrentCity={() => {}} />
+    );
 
     const cityTextBox = screen.getByRole('textbox');
     await userEvent.type(cityTextBox, 'Berlin');
@@ -59,7 +62,26 @@ describe('<CitySearch /> component', () => {
 
     expect(cityTextBox).toHaveValue(BerlinGermanySuggestion.textContent);
 
+    await userEvent.click(BerlinGermanySuggestion);
+
     // Check if suggestions are hidden
     expect(screen.queryByRole('list')).not.toBeInTheDocument();
+  });
+});
+
+describe('<CitySearch /> integration', () => {
+  test('renders suggestion list when the app is rendered', async () => {
+    const AppWrapper = render(<App />);
+    const AppDom = AppWrapper.container.firstChild;
+
+    const CitySearchDom = AppDom.querySelector('#city-search');
+    const cityTextBox = within(CitySearchDom).queryByRole('textbox');
+
+    await userEvent.click(cityTextBox);
+    const allEvents = await getEvents();
+    const allLocations = extractLocations(allEvents);
+    const suggestionListItems =
+      within(CitySearchDom).queryAllByRole('listitem');
+    expect(suggestionListItems.length).toBe(allLocations.length + 1);
   });
 });
