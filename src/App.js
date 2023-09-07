@@ -23,12 +23,16 @@ const App = () => {
 
   useEffect(() => {
     fetchData();
-  }, [currentCity]);
+  }, [currentCity, currentNoe]);
 
   return (
     <div className="App">
+      <header className="header">
+        <div className="logo">Meet App</div>
+        <div className="slogan">Never miss another Event</div>
+      </header>
       <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
-      <NumberOfEvents />
+      <NumberOfEvents setCurrentNoe={setCurrentNoe} />
       <EventList events={events} />
     </div>
   );

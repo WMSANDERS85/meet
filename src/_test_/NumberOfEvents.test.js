@@ -2,7 +2,12 @@ import userEvent from '@testing-library/user-event';
 import NumberOfEvents from '../components/NumberOfEvents';
 import {render, screen} from '@testing-library/react';
 
-const renderWithProps = (props = {}) => render(<NumberOfEvents {...props} />);
+const renderWithProps = (props = {}) => {
+  const defaultProps = {
+    setCurrentNoe: () => {},
+  };
+  return render(<NumberOfEvents {...defaultProps} {...props} />);
+};
 
 describe('<NumberOfEvents /> component', () => {
   test('render text input', () => {

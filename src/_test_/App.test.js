@@ -49,4 +49,18 @@ describe('<App /> integration', () => {
       expect(event.textContent).toContain('Berlin, Germany');
     });
   });
+
+  test('renders a list of events matching the number selected by the user', async () => {
+    const AppWrapper = render(<App />);
+    const AppDOM = AppWrapper.container.firstChild;
+    const NumberOfEventsDOM = AppDOM.querySelector('#number-of-events');
+    const NumberOfEventsInput =
+      within(NumberOfEventsDOM).queryByRole('textbox');
+
+    await userEvent.type(NumberOfEventsInput, `{backspace}{backspace}10`);
+
+    const EventListDOM = AppDOM.querySelector('#event-list');
+    const allRenderedEvents = within(EventListDOM).queryAllByRole('listitem');
+    expect(allRenderedEvents.length).toEqual(10);
+  });
 });
