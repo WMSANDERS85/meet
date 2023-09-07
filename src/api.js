@@ -18,7 +18,7 @@ const checkToken = async (accessToken) => {
 
 const removeQuery = () => {
   let newurl;
-  if (window.history.pushState && window) {
+  if (window.history.pushState && window.location.pathname) {
     newurl = `${window.location.protocol}//${window.location.host}${window.location.pathname}`;
     window.history.pushState('', '', newurl);
   } else {
@@ -29,9 +29,9 @@ const removeQuery = () => {
 
 const getToken = async (code) => {
   try {
-    const encodCode = encodeURIComponent(code);
+    const encodeCode = encodeURIComponent(code);
     const response = await fetch(
-      `https://c0n60utzj7.execute-api.us-west-1.amazonaws.com/dev/api/token/${encodCode}`
+      `https://c0n60utzj7.execute-api.us-west-1.amazonaws.com/dev/api/token/${encodeCode}`
     );
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -77,6 +77,7 @@ export const getAccessToken = async () => {
       );
       const result = await response.json();
       const {authUrl} = result;
+      return (window.location.href = authUrl);
     }
     return code && getToken(code);
   }
