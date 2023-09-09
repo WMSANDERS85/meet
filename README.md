@@ -65,7 +65,7 @@ The app is built using Test Driven Development(TDD) and Behavior Driven Developm
 
 **Scenarios**
 
-**Scenario 1: Event Elements default state**
+**Scenario 1: An Event Element is collaped by default**
 
 **Given** the user has selected a city to browse events;
 **When** the user views a list of events for the selected city;
@@ -74,14 +74,14 @@ The app is built using Test Driven Development(TDD) and Behavior Driven Developm
 **Scenario 2: User can expand an event to view more details**
 
 **Given** the user has found and event of intrest;
-**When** the user clicks on the event or show more button;
-**Then** the event will expand providing detailed information about the selected event.
+**When** the user clicks on the show details buton;
+**Then** the event will expand to show more details
 
-**Scenario 3: User can collapse event details**
+**Scenario 3: User can collapse event to hide details**
 
-**Given** the user chooses to view another event or return to the list of events for the selected city;
-**When** the user clicks outside the event description or clicks the close icon;
-**Then** the event element will return to a collapsed state.
+**Given** the user has expanded an event to view more details;
+**When** the user clicks on the hide details button;
+**Then** the event will collapse and hide the details
 
 ### Feature 3: Specify Number of Events
 
@@ -96,14 +96,14 @@ The app is built using Test Driven Development(TDD) and Behavior Driven Developm
 **Scenario 1: When user hasn’t specified a number, 32 events are shown by default**
 
 **Given** The user doesn't specify the number of events they want to view per city;
-**When** The user selects a city to view events for;
-**Then** The user will see the default number of events for the selected city;
+**When** The user recieves the list of events in that city 
+**Then** a number of 32 events should be displayed by default
 
 **Scenario 2: User can change the number of events displayed**
 
-**Given** The user specifies a set amount of events to view per city.
-**When** The user selects a city to view events for;
-**Then** The specified number of events will be shown for the selected city;
+**Given** The user recieved a list of 32 events per selected city
+**When** The user wants to change the number of events displayed
+**Then** Then they should be able to modify the number of events
 
 ### Feature 4: Use the App When Offline
 
