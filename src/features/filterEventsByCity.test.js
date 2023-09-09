@@ -1,3 +1,4 @@
+/* eslint-disable testing-library/no-node-access */
 import {render, waitFor, within} from '@testing-library/react';
 import {loadFeature, defineFeature} from 'jest-cucumber';
 import App from '../App';
