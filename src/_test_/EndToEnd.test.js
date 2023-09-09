@@ -46,9 +46,9 @@ describe('Filter events by city', () => {
 
   beforeAll(async () => {
     browser = await puppeteer.launch({
-      headless: false,
-      slowMo: 250,
-      ignoreDefaultArgs: ['--disable-extensions'],
+      // headless: false,
+      // slowMo: 250,
+      // ignoreDefaultArgs: ['--disable-extensions'],
     }); // open browser
     page = await browser.newPage(); // open new page
     await page.goto('http://localhost:3000/'); // go to localhost:3000
