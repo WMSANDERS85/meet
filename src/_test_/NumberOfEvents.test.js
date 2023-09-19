@@ -5,6 +5,7 @@ import {render, screen} from '@testing-library/react';
 const renderWithProps = (props = {}) => {
   const defaultProps = {
     setCurrentNoe: () => {},
+    setErrorAlert: () => {},
   };
   return render(<NumberOfEvents {...defaultProps} {...props} />);
 };

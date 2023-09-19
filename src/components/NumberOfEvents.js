@@ -1,8 +1,18 @@
-const NumberOfEvents = ({setCurrentNoe}) => {
+const NumberOfEvents = ({setCurrentNoe, setErrorAlert}) => {
   const handleInputChanged = (event) => {
     const value = event.target.value;
-    setCurrentNoe(value);
+    if (isNaN(value)) {
+      setErrorAlert('Please enter a number');
+    } else if (value > 50) {
+      setErrorAlert('Maximum number of events is 50');
+    } else if (value <= 0) {
+      setErrorAlert('Minimum number of events is 1');
+    } else {
+      setErrorAlert('');
+      setCurrentNoe(value);
+    }
   };
+
   return (
     <div id="number-of-events">
       <input

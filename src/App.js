@@ -12,6 +12,7 @@ const App = () => {
   const [allLocations, setAllLocations] = useState([]);
   const [currentCity, setCurrentCity] = useState('See all cities');
   const [infoAlert, setInfoAlert] = useState('');
+  const [errorAlert, setErrorAlert] = useState('');
 
   const fetchData = async () => {
     const allEvents = await getEvents();
@@ -35,14 +36,18 @@ const App = () => {
       </header>
       <div className="alerts-container">
         {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
+        {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
       </div>
-      <div className
+
       <CitySearch
         allLocations={allLocations}
         setCurrentCity={setCurrentCity}
         setInfoAlert={setInfoAlert}
       />
-      <NumberOfEvents setCurrentNoe={setCurrentNoe} />
+      <NumberOfEvents
+        setCurrentNoe={setCurrentNoe}
+        setErrorAlert={setErrorAlert}
+      />
       <EventList events={events} />
     </div>
   );
