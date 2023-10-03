@@ -5,6 +5,7 @@ import NumberOfEvents from './components/NumberOfEvents';
 import {extractLocations, getEvents} from './api';
 import {InfoAlert, ErrorAlert, WarningAlert} from './components/Alert';
 import CityEventsChart from './components/CityEventsChart';
+import EventsGenresChart from './components/EventsGenresChart';
 import './App.css';
 
 const App = () => {
@@ -27,7 +28,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    if (navigator.online === false) {
+    if (navigator.onLine === false) {
       setWarningAlert('You are offline. Events shown may not be up-to-date.');
     } else {
       setWarningAlert('');
@@ -57,6 +58,7 @@ const App = () => {
         setErrorAlert={setErrorAlert}
       />
       <div className="charts-container">
+        <EventsGenresChart events={events} />
         <CityEventsChart allLocations={allLocations} events={events} />
       </div>
       <EventList events={events} />

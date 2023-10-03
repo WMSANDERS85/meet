@@ -16,9 +16,10 @@
   justify-content: center;
 }
 
-body{
+body {
   background-color: var(--primary-color);
 }
+
 .header {
   display: flex;
   align-items: center;
@@ -28,7 +29,6 @@ body{
   margin-bottom: 15px;
   border-radius: 10px;
   max-width: 600px;
-    
 }
 
 .logo {
@@ -38,12 +38,11 @@ body{
   letter-spacing: 2px;
 }
 
-.slogan{
+.slogan {
   font-size: 16px;
   font-weight: normal;
   letter-spacing: 1px;
   margin-left: 20px;
-
 }
 
 .App {
@@ -110,7 +109,6 @@ input[type="number"] {
 .suggestions > li:last-child {
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  
 }
 
 .suggestions > li:hover {
@@ -125,12 +123,12 @@ input[type="number"] {
   border-radius: 10px;
   position: relative;
   background-color: var(--tertiary-color);
-  max-width: 400px;
+  max-width: 600px;
+  min-width: auto;
 }
 
-
 .details-btn {
-  position: absolute; 
+  position: absolute;
   right: 5px;
   bottom: 5px;
   padding: 5px 8px;
@@ -148,13 +146,68 @@ input[type="number"] {
   background-color: var(--details);
   margin-top: 10px;
   text-align: left;
-  max-width: 400px;
+  max-width: 600px;
+  min-width: none;
 }
 
-.alerts-container{
+.alerts-container {
   position: fixed;
   top: 80px;
   left: 20px;
   width: 200px;
   z-index: 1000;
 }
+
+.charts-container {
+  display: grid;
+  gap: 20px;
+  width: 600px;
+  grid-template-columns: 1fr 1fr;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    max-width: 95%;
+  }
+}
+
+/* Media Query for mobile adjustments */
+@media (max-width: 768px) {
+
+  .event, .details {
+    max-width: 95%;
+    margin: 10 auto;
+  }
+
+  .event {
+    padding: 5px 5px 25px;
+  }
+
+  .details {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .header {
+    padding: 10px;
+    max-width: 95%;
+    margin: 10px auto;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .slogan {
+    font-size: 14px;
+  }
+
+  .suggestions {
+    width: 95%;
+  }
+
+#root{
+  flex-direction: column;
+  align-items: center;
+}
+}
+
