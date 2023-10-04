@@ -10,11 +10,6 @@
   --suggestions: #eee;
 }
 
-#root {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 body {
   background-color: var(--primary-color);
@@ -28,7 +23,6 @@ body {
   padding: 20px;
   margin-bottom: 15px;
   border-radius: 10px;
-  max-width: 600px;
 }
 
 .logo {
@@ -116,23 +110,20 @@ input[type="number"] {
 }
 
 .event {
-  padding: 10px 10px 35px;
+  padding: 10px 10px 20px;
   margin-bottom: 10px;
   text-align: left;
   border: 3px solid var(--secondary-color);
-  border-radius: 10px;
+  border-radius: 5px;
   position: relative;
   background-color: var(--tertiary-color);
-  max-width: 600px;
-  min-width: auto;
+
 }
 
 .details-btn {
-  position: absolute;
+  margin: 10px 0px;
   right: 5px;
-  bottom: 5px;
   padding: 5px 8px;
-  border-radius: 4px;
   outline: none;
   cursor: pointer;
 }
@@ -146,7 +137,6 @@ input[type="number"] {
   background-color: var(--details);
   margin-top: 10px;
   text-align: left;
-  max-width: 600px;
   min-width: none;
 }
 
@@ -158,56 +148,21 @@ input[type="number"] {
   z-index: 1000;
 }
 
+.charts-container svg {
+  overflow : visible;
+}
+
+div.charts-container > svg {
+  overflow: visible;
+}
+
 .charts-container {
   display: grid;
-  gap: 20px;
-  width: 600px;
   grid-template-columns: 1fr 1fr;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     max-width: 95%;
   }
-}
-
-/* Media Query for mobile adjustments */
-@media (max-width: 768px) {
-
-  .event, .details {
-    max-width: 95%;
-    margin: 10 auto;
-  }
-
-  .event {
-    padding: 5px 5px 25px;
-  }
-
-  .details {
-    padding: 10px;
-    font-size: 14px;
-  }
-
-  .header {
-    padding: 10px;
-    max-width: 95%;
-    margin: 10px auto;
-  }
-
-  .logo {
-    font-size: 24px;
-  }
-
-  .slogan {
-    font-size: 14px;
-  }
-
-  .suggestions {
-    width: 95%;
-  }
-
-#root{
-  flex-direction: column;
-  align-items: center;
-}
 }
 
