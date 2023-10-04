@@ -1,9 +1,17 @@
 import {useState, useEffect} from 'react';
-import {PieChart, Pie, ResponsiveContainer} from 'recharts';
+import {
+  PieChart,
+  Pie,
+  ResponsiveContainer,
+  Tooltip,
+  Cell,
+  Legend,
+} from 'recharts';
 
 const EventGenresChart = ({events}) => {
   const [data, setData] = useState([]);
   const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'Angular'];
+  const colors = ['#0088FE', '#FFFF00', '	#008000', '#FF8042', '#FF0000'];
   const renderCustomizedLabel = ({
     cx,
     cy,
@@ -13,18 +21,18 @@ const EventGenresChart = ({events}) => {
     index,
   }) => {
     const RADIAN = Math.PI / 180;
-    const radius = outerRadius;
-    const x = cx + radius * Math.cos(-midAngle * RADIAN) * 1.07;
-    const y = cy + radius * Math.sin(-midAngle * RADIAN) * 1.07;
+    const radius = outerRadius * 0.6;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN) * 1.2;
+    const y = cy + radius * Math.sin(-midAngle * RADIAN) * 1.2;
     return percent ? (
       <text
         x={x}
         y={y}
-        fill="#ffff"
-        textAnchor={x > cx ? 'start' : 'end'}
+        fill="#000000"
+        textAnchor="middle"
         dominantBaseline="central"
       >
-        {`${genres[index]} ${(percent * 100).toFixed(0)}%`}
+        {(percent * 100).toFixed(0)}%
       </text>
     ) : null;
   };
@@ -56,7 +64,23 @@ const EventGenresChart = ({events}) => {
           label={renderCustomizedLabel}
           outerRadius={130}
           margin={{top: 5, right: 20, left: 20, bottom: 5}}
+        >
+          {data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+          ))}
+        </Pie>
+        <Legend
+          layout="vertical"
+          verticalAlign="bottom"
+          align="left"
+          wrapperStyle={{
+            backgroundColor: 'lightgray',
+            padding: '10px',
+            borderRadius: '5px',
+            boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
+          }}
         />
+        <Tooltip />
       </PieChart>
     </ResponsiveContainer>
   );
